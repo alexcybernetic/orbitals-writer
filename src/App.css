@@ -1,0 +1,63 @@
+
+.App {
+  display: flex;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  margin: auto;
+  width: 100%;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.GlyphGenerator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+
+.GlyphGenerator textarea {
+  width: 50%;
+  border: solid 1px lightgrey;
+  border-radius: 5px;
+  margin: auto;
+  padding: 10px;
+}
+
+.Controls {
+ height: 50px;
+ display: flex;
+ gap:10px;
+ justify-items: center;
+ align-items: center;
+}
+
+.GlyphContainer {
+ display: flex;
+ /* max-width:500px; */
+ margin:auto;
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap:0;
+ align-items: center;
+}
+
+.Glyph {
+ margin: 0;
+ box-shadow: 0 !important;
+}
+
+.Glyph figcaption {
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 600px) {
+  .GlyphContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
