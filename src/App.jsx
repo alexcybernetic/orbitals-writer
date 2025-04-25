@@ -3,6 +3,7 @@ import "./App.css";
 
 
 /**
+ * Orbitals Writing System
  * Glyph Generator v0.1
  * ----------------------
  */
