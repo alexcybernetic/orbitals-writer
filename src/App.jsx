@@ -12,7 +12,7 @@ import "./App.css";
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const TWO_PI = Math.PI * 2;
 const WHEEL_OFFSET = 0; // A at 12 o’clock
-const LEAD_IN_PX = 10; // radial gap after start‑dot
+const LEAD_IN_PX = 7; // radial gap after start‑dot
 const RING_MARGIN_PX = 15; // space between letters and labels
 const PAL_SPLIT = 1; // no radial split; leaf shape via perpendicular bow   // radius offset for palindrome halves
 const STROKE_OUT = 0;
@@ -99,10 +99,10 @@ function Glyph({ word, size = 170, wheelRadius = 80, showWheel = true, showGlyph
         })}
         <path d={d} stroke="black" strokeWidth={STROKE_OUT} strokeOpacity="0.25" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         <path d={d} stroke="black" strokeWidth={STROKE_IN} fill="none" strokeLinecap="round" strokeLinejoin="round" />
-        {dot && <circle cx={dot.x} cy={dot.y} r="4" fill="black" />}
+        {dot && <circle cx={dot.x} cy={dot.y} r="3" fill="black" />}
         {rings.map((p, i) => <circle key={i} cx={p.x} cy={p.y} r="4.5" fill="none" stroke="black" strokeWidth="2" />)}
       </svg>
-      {showGlyphCaption && <figcaption className="text-xs text-gray-700 uppercase tracking-wider">{word}</figcaption>}
+      {showGlyphCaption && <figcaption>{word}</figcaption>}
     </figure>
   );
 }
@@ -116,9 +116,6 @@ function App() {
   return (
     <div className="App">
       <div className="GlyphGenerator">
-        <div>
-          <svg viewBox="0 0 170 170" width="80" height="80" className="rounded bg-white"><path d="M 139.60 91.63 Q 112.88 68.41 138.49 48.08 Q 102.10 109.26 115.21 142.55 Q 79.66 117.48 69.44 148.11" stroke="black" strokeWidth="0" strokeOpacity="0.25" fill="none" strokeLinecap="round" strokeLinejoin="round"></path><path d="M 139.60 91.63 Q 112.88 68.41 138.49 48.08 Q 102.10 109.26 115.21 142.55 Q 79.66 117.48 69.44 148.11" stroke="black" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"></path><circle cx="149.52607681637352" cy="92.834884216596" r="4" fill="black"></circle><circle cx="115.20700618284499" cy="142.55464166745864" r="4.5" fill="none" stroke="black" strokeWidth="2"></circle></svg>
-        </div>
         <h1>Orbitals</h1>
         <p>A playful visual writing & information-encoding system that turns any word into a flowing glyph orbiting an alphabet wheel.<br/></p>
         <textarea value={input} placeholder="Type words separated by whitespace…" onChange={(e) => setInput(e.target.value)} />
