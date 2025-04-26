@@ -117,7 +117,7 @@ function App() {
     <div className="App">
       <div className="GlyphGenerator">
         <h1>Orbitals</h1>
-        <p>A playful visual writing & information-encoding system that turns any word into a flowing glyph orbiting an alphabet wheel.<br/></p>
+        <p>A playful visual writing & information-encoding system that turns any word into a flowing glyph orbiting an alphabet wheel. <a href='https://github.com/alexcybernetic/orbitals-writer' target="_blank">GitHub</a><br/></p>
         <textarea value={input} placeholder="Type words separated by whitespace…" onChange={(e) => setInput(e.target.value)} />
           <div className="Controls">
             <label><input type="checkbox" checked={showWheel} onChange={(e) => setShowWheel(e.target.checked)} /> Show alphabet wheel</label>
