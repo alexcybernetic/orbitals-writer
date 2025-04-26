@@ -15,3 +15,18 @@ body {
   padding:30px;
   box-sizing: border-box;
 } 
+
+h1 {
+  color: black;
+  font-size: 2em;
+  margin:0;
+  padding:0;
+}
+
+p {
+  color: black;
+  font-size: 1em;
+  margin:0;
+  padding:0;
+  max-width: 500px;
+}
