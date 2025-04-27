@@ -220,14 +220,14 @@ function App() {
       <div className="GlyphGenerator">
         <h1>Orbitals</h1>
         <p>An experimental, playful system to encode words as unique glyphs. <a href='https://github.com/alexcybernetic/orbitals-writer' target="_blank">Version 0.2, code on GitHub</a><br/><br/></p>
-        <label>Choose a language:</label>
+        <label>Choose a language</label>
         <select value={lang} onChange={e => setLang(e.target.value)}>
         {Object.entries(ALPHABETS).map(([k, v]) => (
           <option key={k} value={k}>{v.label}</option>
         ))}
         </select><br/>
-        <label>Type words:</label>
-        <textarea value={input} placeholder="Type words separated by whitespace…" onChange={(e) => setInput(e.target.value)} />
+        <label>Type words</label>
+        <textarea value={input} className={lang} placeholder="Type words separated by whitespace…" onChange={(e) => setInput(e.target.value)} />
           <div className="Controls">
             <label><input type="checkbox" checked={showWheel} onChange={(e) => setShowWheel(e.target.checked)} /> Show alphabet wheel</label>
             <label><input type="checkbox" checked={showGlyphCaption} onChange={(e) => setShowGlyphCaption(e.target.checked)} /> Show caption</label>
