@@ -129,6 +129,8 @@ function buildGlyph(alphabet, word, wheelR, C) {
     (i > 0 && ch === letters[i - 1]) ? rings.push(p) : pts.push({ ...p, ang });
   });
 
+  if (pts.length < 1) return { d: "", dot: null, rings: [] };
+
   /* store exact letter position for dot */
   const dot = { ...pts[0] };
 
