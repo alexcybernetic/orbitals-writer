@@ -4,7 +4,7 @@ import "./App.css";
 
 /**
  * Orbitals Writing System
- * Glyph Generator v0.2
+ * Glyph Generator v0.2.1
  * ----------------------
  */
 
@@ -168,21 +168,18 @@ function buildGlyph(alphabet, word, wheelR, C) {
 
 /* ────────── Glyph component ────────── */
 function Glyph({ alphabet, word, size = 170, wheelRadius = 80, showWheel = true, showGlyphCaption = true }) {
-
-
   const C = size / 2;
   const { d, dot, rings } = buildGlyph(alphabet, word, wheelRadius, C);
-
   return (
     <figure className="Glyph">
-      <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size} className="rounded bg-white">
+      <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size}>
         {showWheel && alphabet.map((l) => {
           const p = polarToXY(angleOf(l, alphabet), wheelRadius, C);
           return <text key={l} x={p.x} y={p.y} fontSize="8" textAnchor="middle" alignmentBaseline="middle" fill="#bbb">{l}</text>;
         })}
         <path d={d} stroke="black" strokeWidth={STROKE_OUT} strokeOpacity="0.25" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         <path d={d} stroke="black" strokeWidth={STROKE_IN} fill="none" strokeLinecap="round" strokeLinejoin="round" />
-        {dot && <circle cx={dot.x} cy={dot.y} r="3" fill="black" />}
+        {dot && <circle className="startdot" cx={dot.x} cy={dot.y} r="3" fill="black" />}
         {rings.map((p, i) => <circle key={i} cx={p.x} cy={p.y} r="4.5" fill="none" stroke="black" strokeWidth="2" />)}
       </svg>
       {showGlyphCaption && <figcaption>{word}</figcaption>}
@@ -218,7 +215,7 @@ function App() {
   }, [lang]);
 
   return (
-    <div className="App">
+    <div className="OrbitalsApp">
       <div className="GlyphGenerator">
         <h1>Orbitals</h1>
         <p>An experimental, playful system to encode words as unique glyphs. <a href='https://github.com/alexcybernetic/orbitals-writer' target="_blank">Version 0.2, code on GitHub</a><br/><br/></p>
